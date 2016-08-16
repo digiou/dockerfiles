@@ -7,7 +7,7 @@ COPY ./.rtorrent.rc /home/rtorrent/
 
 ENV TERM xterm
 
-RUN apk add --update rtorrent && \
+RUN apk add --no-cache rtorrent && \
     mkdir /home/rtorrent/.session /data /data/comple /data/incomplete /data/watch && \
     chown -R rtorrent:rtorrent /home/rtorrent/ /data
 
