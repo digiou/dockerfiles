@@ -22,7 +22,7 @@ services:
             - APP_UID=1000
             - APP_GID=1000
         volumes:
-            - /home/digiou/Downloads:/data
+            - /home/digiou/Downloads/complete:/data
             - config-emby:/config
         ports:
             - "8096:8096"
