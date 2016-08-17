@@ -1,16 +1,33 @@
 version: '2'
-transmission:
-    image: linuxserver/transmission
-    container_name: "transmission"
-    restart: always
-    volumes:
-     - config-transmission:/config
-     - /home/digiou/Downloads:/downloads
-    ports:
-     - "9091:9091"
-     - "51413:51413"
-     - "51413:51413/udp"
-    environment:
-     - PGID=1000
-     - PUID=1000
-     - TZ=Europe/Athens
+services:
+    transmission:
+        image: linuxserver/transmission
+        container_name: transmission
+        restart: always
+        volumes:
+            - config-transmission:/config
+            - /home/digiou/Downloads:/downloads
+        ports:
+            - "9091:9091"
+            - "51413:51413"
+            - "51413:51413/udp"
+        environment:
+            - PGID=1000
+            - PUID=1000
+            - TZ=Europe/Athens
+    emby:
+        image: emby/embyserver
+        container_name: emby
+        environment:
+            - APP_UID=1000
+            - APP_GID=1000
+        volumes:
+            - /home/digiou/Downloads:/data
+            - config-emby:/config
+        ports:
+            - "8096:8096"
+volumes:
+    config-emby:
+        driver: local
+    config-transmission:
+        driver: local
