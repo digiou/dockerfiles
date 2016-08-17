@@ -1,3 +1,4 @@
+version: '2'
 transmission:
     image: linuxserver/transmission
     container_name: "transmission"
