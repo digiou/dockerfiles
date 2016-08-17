@@ -1,0 +1,15 @@
+transmission:
+    image: linuxserver/transmission
+    container_name: "transmission"
+    restart: always
+    volumes:
+     - config-transmission:/config
+     - /home/digiou/Downloads:/downloads
+    ports:
+     - "9091:9091"
+     - "51413:51413"
+     - "51413:51413/udp"
+    environment:
+     - PGID=1000
+     - PUID=1000
+     - TZ=Europe/Athens
