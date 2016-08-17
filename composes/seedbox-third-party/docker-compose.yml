@@ -18,16 +18,32 @@ services:
     emby:
         image: emby/embyserver
         container_name: emby
-        environment:
-            - APP_UID=1000
-            - APP_GID=1000
+        restart: always
         volumes:
             - /home/digiou/Downloads/complete:/data
             - config-emby:/config
         ports:
             - "8096:8096"
+        environment:
+            - APP_UID=1000
+            - APP_GID=1000
+    sonarr:
+        image linuxserver/sonarr
+        container_name: sonarr
+        restart: always
+        volumes:
+            - config-sonarr:/config
+            - /home/digiou/Downloads:/data
+            - /dev/rtc:/dev/rtc:ro
+        ports:
+            - "8989:8989"
+        environment:
+            - PUID=1000
+            - PGID=1000
 volumes:
     config-emby:
         driver: local
     config-transmission:
+        driver: local
+    config-sonarr:
         driver: local
