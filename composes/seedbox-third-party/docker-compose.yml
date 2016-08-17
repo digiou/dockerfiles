@@ -28,7 +28,7 @@ services:
             - APP_UID=1000
             - APP_GID=1000
     sonarr:
-        image linuxserver/sonarr
+        image: linuxserver/sonarr
         container_name: sonarr
         restart: always
         volumes:
