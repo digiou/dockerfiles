@@ -1,9 +1,12 @@
-# Dockerfiles
+# Dockerfiles :whale:
 
 A list of all my docker files.
 
-## Why do you keep so many?
+## What do you keep here?
+Private backups of personal dockerfiles as well as compose files.
 
-Whatever is here, it is because the readily available images on dockerhub did not suit my needs.
+If I find a nice new service/program and it isn't contained quite well (or at all), I'll add it here.
 
-That usually means, private Alpine rewrites.
+## Why docker as the container engine?
+
+I like whales.
