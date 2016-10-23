@@ -22,11 +22,10 @@ services:
         volumes:
             - /home/digiou/Downloads/complete:/data
             - config-emby:/config
-        ports:
-            - "8096:8096"
         environment:
             - APP_UID=1000
             - APP_GID=1000
+        network_mode: "host"
     sonarr:
         image: linuxserver/sonarr
         container_name: sonarr
